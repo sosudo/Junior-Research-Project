@@ -30,8 +30,8 @@ def fast_fourier_transform_comparison(id1, id2):
   ans = complex_MSE(out)
   return ans
 # Test cases
-# song1.wav was elysium_the-young-false-man_small-version_live-and_restored.wav
-# song2.wav was onclassical_demo_demicheli_geminiani_pieces_allegro-in-f-major_small-version.wav
+# song1.wav was onclassical_demo_demicheli_geminiani_pieces_allegro-in-f-major_small-version.wav
+# song2.wav was elysium_the-young-false-man_small-version_live-and_restored.wav
 print(fast_fourier_transform_comparison('song1.wav', 'song1.wav'))
 print(fast_fourier_transform_comparison('song1.wav', 'song2.wav'))
 print(fast_fourier_transform_comparison('song2.wav', 'song1.wav'))
