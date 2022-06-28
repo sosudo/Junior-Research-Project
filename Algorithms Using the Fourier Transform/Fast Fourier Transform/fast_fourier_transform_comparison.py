@@ -1,3 +1,7 @@
+# June 28, 2022
+
+# The purpose of this is to compute how similar two songs or soundwaves are by reading a wav file of each then using the FFT to determine the MSEs of 
+
 # Importing the wavfile module to read songs
 from scipy.io import wavfile
 # Importing the helper functions
@@ -25,4 +29,8 @@ def fast_fourier_transform_comparison(id1, id2):
   # The closer the ans is to 0, the more similar the two songs are
   ans = complex_MSE(out)
   return ans
+# Test cases
 print(fast_fourier_transform_comparison('song1.wav', 'song1.wav'))
+print(fast_fourier_transform_comparison('song1.wav', 'song2.wav'))
+print(fast_fourier_transform_comparison('song2.wav', 'song1.wav'))
+print(fast_fourier_transform_comparison('song2.wav', 'song2.wav'))
