@@ -1,10 +1,3 @@
-# Based off of the algorithm described here: https://www.quora.com/What-is-f-x-for-f-x-4x-1/answer/Chaz-Bowen?ch=10&oid=349321955&share=1205c8f0&srid=gCm4T&target_type=answer
-# Other sources used for this section:
-# http://wwwcourses.sens.buffalo.edu/ee205/Course%20Documents/Laplace.pdf
-# https://dsp.stackexchange.com/questions/66428/how-to-compute-laplace-transform-in-python
-# https://dynamics-and-control.readthedocs.io/en/latest/1_Dynamics/3_Linear_systems/Laplace%20transforms.html
-# https://docs.sympy.org/latest/tutorial/basic_operations.html
-
 # June 9, 2022
 
 # The purpose of this is to introduce a method of calculating derivatives and integrals symbolically in order to avoid brute force and pattern matching.
