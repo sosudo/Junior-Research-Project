@@ -4,7 +4,7 @@
 
 # Import the fft module we'll need to compare our waves
 from scipy.fftpack import fft
-# Calculates the mean squared average for a dataset with complex numbers, finding the magnitude instead of the absolute value
+# Calculates the mean squared error for a dataset with complex numbers, finding the magnitude instead of the absolute value
 def complex_MSE(data):
   sum = 0
   for i in data:
