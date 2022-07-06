@@ -1,6 +1,6 @@
 from scipy.io import wavfile
 from stft_modules import complex_MSE, analysis, static
-def short_term_fourier_transform_comparison(id1, id2):
+def short_time_fourier_transform_comparison(id1, id2):
   fs1, song1 = wavfile.read(id1)
   fs2, song2 = wavfile.read(id2)
   channel_count1 = song1.shape[1]
