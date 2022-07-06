@@ -1,6 +1,6 @@
 # June 28, 2022
 
-# The purpose of this is to compute how similar two songs or soundwaves are by reading a wav file of each then using the FFT to determine the MSEs of 
+# The purpose of this is to compute how similar two songs or soundwaves are by reading a wav file of each then using the FFT to determine their MSEs
 
 # Importing the wavfile module to read songs
 from scipy.io import wavfile
