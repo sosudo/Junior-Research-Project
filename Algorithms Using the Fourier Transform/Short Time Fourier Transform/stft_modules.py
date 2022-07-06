@@ -1,8 +1,15 @@
+# July 6, 2022
+
+# This acts as a helper to short_time_fourier_transform_comparison.py, featuring the MSE functions and appending functions used by it
+
+# Import the signal module, which includes the STFT function we need to make the comparison
 from scipy import signal
 import numpy as np
+# Calculates the mean squared error for a dataset with complex numbers, finding the magnitude instead of the absolute value
 def complex_MSE(data):
   sum = 0
   for i in data:
+    # abs() find both the absolute value and the magnitude depending on the input type
     sum += abs(i)**2
   return sum/len(data)
 def analysis_helper(Zxx1, Zxx2):
