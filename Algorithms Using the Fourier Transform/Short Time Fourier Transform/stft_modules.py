@@ -8,7 +8,7 @@ from scipy import signal
 from numba import jit, prange
 # Calculates the mean squared error for a dataset with complex numbers, finding the magnitude instead of the absolute value
 # Flag to use the optimizations
-@jit(nogil=True, parallel=True)
+@jit(nogil=True, parallel=True, fastmath=True)
 def complex_MSE(data):
   sum = 0
   for i in data:
@@ -17,7 +17,7 @@ def complex_MSE(data):
   return sum/len(data)
 # Acts as a helper function to the analysis function, since resizing the inner ndarrays is prevented
 # Flag to use the optimizations
-@jit(nogil=True, parallel=True)
+@jit(nogil=True, parallel=True, fastmath=True)
 def analysis_helper(Zxx1, Zxx2):
   # Copying the STFTs for each song so that they're editable
   stft1 = Zxx1.copy()
@@ -34,7 +34,7 @@ def analysis_helper(Zxx1, Zxx2):
   return complex_MSE(diff)
 # Does the analysis on two songs
 # Flag to use the optimizations
-@jit(nogil=True, parallel=True)
+@jit(nogil=True, parallel=True, fastmath=True)
 def analysis(fs1, fs2, song1, song2):
   # Creating the STFTs of each song
   f1, t1, Zxx1 = signal.stft(song1, fs1)
@@ -54,7 +54,7 @@ def analysis(fs1, fs2, song1, song2):
   return complex_MSE(diff)
 # Does the analysis on one song
 # Flag to use the optimizations
-@jit(nogil=True, parallel=True)
+@jit(nogil=True, parallel=True, fastmath=True)
 def static(fs, song):
   # Create the STFT
   f, t, Zxx = signal.stft(song, fs)
