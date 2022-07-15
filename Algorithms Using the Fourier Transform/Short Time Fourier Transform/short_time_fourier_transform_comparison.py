@@ -9,7 +9,7 @@ from numba import jit, prange
 # Importing the helper functions
 from stft_modules import complex_MSE, analysis, static
 # Flag to use the optimizations
-@jit(nogil=True, parallel=True)
+@jit(nogil=True, parallel=True, fastmath=True)
 def short_time_fourier_transform_comparison(id1, id2):
   # Reading the songs, fs is the sampling frequency
   fs1, song1 = wavfile.read(id1)
