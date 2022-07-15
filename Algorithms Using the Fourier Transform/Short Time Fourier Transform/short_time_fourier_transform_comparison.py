@@ -4,8 +4,12 @@
 
 # Importing the wavfile module to read songs
 from scipy.io import wavfile
+# Importing the optimzations
+from numba import jit, prange
 # Importing the helper functions
 from stft_modules import complex_MSE, analysis, static
+# Flag to use the optimizations
+@jit(nogil=True, parallel=True)
 def short_time_fourier_transform_comparison(id1, id2):
   # Reading the songs, fs is the sampling frequency
   fs1, song1 = wavfile.read(id1)
@@ -16,7 +20,7 @@ def short_time_fourier_transform_comparison(id1, id2):
   out = []
   # Iterating over the channels
   # If one song has more channels than the other, then we only take the MSE of the song with more channels, when we get to a channel count that exists only in one song
-  for i in range(max(channel_count1, channel_count2)):
+  for i in prange(max(channel_count1, channel_count2)):
     if i <= channel_count1 and i <= channel_count2:
       out.append(analysis(fs1, fs2, song1.T[i], song2.T[i]))
     elif i <= channel_count1 and i > channel_count2:
