@@ -20,7 +20,7 @@ def fast_fourier_transform_comparison(id1, id2):
   out = []
   # Iterating over the channels
   # If one song has more channels than the other, then we only take the MSE of the song with more channels, when we get to a channel count that exists only in one song
-  for i in range(max(channel_count1, channel_count2)):
+  for i in prange(max(channel_count1, channel_count2)):
     if i <= channel_count1 and i <= channel_count2:
       out.append(analysis(song1.T[i], song2.T[i]))
     elif i <= channel_count1 and i > channel_count2:
