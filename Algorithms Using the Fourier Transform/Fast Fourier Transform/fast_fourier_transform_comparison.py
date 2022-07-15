@@ -4,8 +4,12 @@
 
 # Importing the wavfile module to read songs
 from scipy.io import wavfile
+# Importing the optimizations
+from numba import jit, prange
 # Importing the helper functions
 from fourier_modules import complex_MSE, analysis, static
+# Flag to use the optimizations on the function
+@jit(nogil=True, parallel=True)
 def fast_fourier_transform_comparison(id1, id2):
   # Reading the songs, fs is the sampling frequency, which we don't need in this case
   fs1, song1 = wavfile.read(id1)
