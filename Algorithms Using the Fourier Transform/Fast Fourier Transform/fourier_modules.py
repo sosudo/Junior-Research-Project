@@ -4,7 +4,11 @@
 
 # Import the fft module we'll need to compare our waves
 from scipy.fftpack import fft
+# Importing the optimzations
+from numba import jit, prange
 # Calculates the mean squared error for a dataset with complex numbers, finding the magnitude instead of the absolute value
+# Flag to use the optimizations
+@jit(nogil=True, parallel=True)
 def complex_MSE(data):
   sum = 0
   for i in data:
@@ -12,6 +16,8 @@ def complex_MSE(data):
     sum += abs(i)**2
   return sum/len(data)
 # Does the analysis on two songs
+# Flag to use the optimizations
+@jit(nogil=True, parallel=True)
 def analysis(song1, song2):
   # Creating the FFTs of each song
   f1 = fft(song1)
@@ -27,6 +33,8 @@ def analysis(song1, song2):
   # Return the MSE of the error list
   return complex_MSE(diff)
 # Does the analysis on one song
+# Flag to use the optimizations
+@jit(nogil=True, parallel=True)
 def static(song):
   # Create the FFT
   f = fft(song)
