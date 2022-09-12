@@ -10,7 +10,7 @@ import torchaudio.transforms
 # Importing the optimizations
 from numba import jit, prange
 # Importing the helper functions
-from pitch_modules import complex_MSE, analysis, static
+from kaldi_modules import complex_MSE, analysis, static
 # Flag to use the optimizations on the function
 @jit(nogil=True, parallel=True, fastmath=True)
 def pitch_detection_comparison(id1, id2):
