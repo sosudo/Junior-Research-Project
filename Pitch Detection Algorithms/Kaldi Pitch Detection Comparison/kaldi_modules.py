@@ -1,6 +1,6 @@
 # September 11, 2022
 
-# This acts as a helper to kaldi_pitch_detection.py, featuring the MSE functions and appending functions used by it
+# This acts as a helper to kaldi_pitch_detection_comparison.py, featuring the MSE functions and appending functions used by it
 
 # Importing the optimzations
 from numba import jit, prange
