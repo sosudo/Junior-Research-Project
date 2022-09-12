@@ -13,7 +13,7 @@ from numba import jit, prange
 from kaldi_modules import complex_MSE, analysis, static
 # Flag to use the optimizations on the function
 @jit(nogil=True, parallel=True, fastmath=True)
-def pitch_detection_comparison(id1, id2):
+def kaldi_pitch_detection_comparison(id1, id2):
   # Loading the songs, with fs being the sample frequency
   song1, fs1 = torchaudio.load(id1)
   song2, fs2 = torchaudio.load(id2)
@@ -46,7 +46,7 @@ def pitch_detection_comparison(id1, id2):
 # Test Cases
 # song1.wav was onclassical_demo_demicheli_geminiani_pieces_allegro-in-f-major_small-version.wav from the Fast Fourier Transform Folder
 # song2.wav was elysium_the-young-false-man_small-version_live-and_restored.wav from the Fast Fourier Transform Folder
-print(pitch_detection_comparison('song1.wav', 'song2.wav'))
-print(pitch_detection_comparison('song1.wav', 'song1.wav'))
-print(pitch_detection_comparison('song2.wav', 'song1.wav'))
-print(pitch_detection_comparison('song2.wav', 'song2.wav'))
+print(kaldi_pitch_detection_comparison('song1.wav', 'song2.wav'))
+print(kaldi_pitch_detection_comparison('song1.wav', 'song1.wav'))
+print(kaldi_pitch_detection_comparison('song2.wav', 'song1.wav'))
+print(kaldi_pitch_detection_comparison('song2.wav', 'song2.wav'))
